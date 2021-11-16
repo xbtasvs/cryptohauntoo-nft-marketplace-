@@ -1,0 +1,218 @@
+<ng-lottie [options]="options" (animationCreated)="animationCreated($event)" *ngIf="loading==1"
+  style="position:fixed; z-index: 10000;">
+</ng-lottie>
+
+<div class="hauntoo-content" id="wrapper">
+  <!-- content begin -->
+  <div class="no-bottom no-top" id="content">
+    <div id="top"></div>
+
+    <!-- section begin -->
+    <section id="subheader" class="text-light"
+      style="background: url('/assets/images/background/2.jpg') center top / cover;">
+      <div class="center-y relative text-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h1>Buy hauntoo you like</h1>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- section close -->
+
+
+    <!-- section begin -->
+    <section aria-label="section">
+      <div class="container">
+        <div class="row wow fadeIn">
+          <div class="col-lg-12">
+            <div class="items_filter">
+              <form action="" class="row form-dark" id="form_quick_search" method="post" name="form_quick_search">
+                <div class="col text-center" style="pointer-events: none;">
+                  <input class="form-control" id="name_1" name="name_1" placeholder="search item here..." type="text" />
+                  <a href="" id="btn-submit"><i class="fa fa-search bg-color-secondary"></i></a>
+                  <div class="clearfix"></div>
+                </div>
+              </form>
+
+              <div id="buy_category" class="dropdown" style="pointer-events: none;">
+                <a href="#" class="btn-selector">sort by</a>
+                <ul>
+                  <li><span>price</span></li>
+                  <li><span>age</span></li>
+                  <li><span>gen</span></li>
+                  <li><span>cooldown</span></li>
+                </ul>
+              </div>
+
+              <div id="items_type" class="dropdown" style="pointer-events: none;">
+                <a href=" #" class="btn-selector">order by:</a>
+                <ul>
+                  <li><span>low to high</span></li>
+                  <li><span>high to low</span></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+          <!-- nft item begin -->
+          <!-- <ng-template> -->
+
+          <div *ngFor="let it of metadata| paginate : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count }" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+            <div class="nft__item">
+              <div class="nft__item_wrap">
+                <a [routerLink]="['/item', it.hauntooid]" routerLinkActive="active">
+                  <img src={{it.image}} class="lazy nft__item_preview" alt="">
+                </a>
+              </div>
+              <div class="nft__item_info">
+                #{{it.hauntooid}}
+                <span style="vertical-align: middle;" *ngIf="it.price!=null&&it.price!=undefined">{{it.price.toFixed(3)}} FTM</span>
+              </div>
+              <div class=" nft__item_price">
+                <i class="fa fa-transgender"></i>&nbsp;Gen
+                {{it.generation}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock-o"></i>&nbsp;{{it.cooldown_index}}
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+            </pagination-controls>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <!-- content close -->
+
+  <a href="#" id="back-to-top"></a>
+
+  <!-- footer begin -->
+  <footer class="footer-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-1">
+          <div class="widget">
+            <h5>Marketplace</h5>
+            <ul>
+              <li><a href="#">All NFTs</a></li>
+              <li><a href="#">Art</a></li>
+              <li><a href="#">Music</a></li>
+              <li><a href="#">Domain Names</a></li>
+              <li><a href="#">Virtual World</a></li>
+              <li><a href="#">Collectibles</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-1">
+          <div class="widget">
+            <h5>Resources</h5>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Partners</a></li>
+              <li><a href="#">Suggestions</a></li>
+              <li><a href="#">Discord</a></li>
+              <li><a href="#">Docs</a></li>
+              <li><a href="#">Newsletter</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-1">
+          <div class="widget">
+            <h5>Community</h5>
+            <ul>
+              <li><a href="#">Community</a></li>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Brand Assets</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Forum</a></li>
+              <li><a href="#">Mailing List</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-1">
+          <div class="widget">
+            <h5>Newsletter</h5>
+            <p>Signup for our newsletter to get the latest news in your inbox.</p>
+            <form action="" class="row form-dark" id="form_subscribe" method="post" name="form_subscribe">
+              <div class="col text-center">
+                <input class="form-control" id="txt_subscribe" name="txt_subscribe" placeholder="enter your email"
+                  type="text" /> <a href="#" id="btn-subscribe"><i class="arrow_right bg-color-secondary"></i></a>
+                <div class="clearfix"></div>
+              </div>
+            </form>
+            <div class="spacer-10"></div>
+            <small>Your email is safe with us. We don't spam.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="subfooter">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="de-flex">
+              <div class="de-flex-col">
+                <a href="#">
+                  <span class="copy">&copy;
+                    Copyright 2021 - CryptoHauntoo by Designesia</span>
+                </a>
+              </div>
+              <div class="de-flex-col">
+                <div class="social-icons">
+                  <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+                  <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+                  <a href="#"><i class="fa fa-linkedin fa-lg"></i></a>
+                  <a href="#"><i class="fa fa-pinterest fa-lg"></i></a>
+                  <a href="#"><i class="fa fa-rss fa-lg"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer close -->
+
+</div>
+
+<div id="selector">
+  <span id="dark-mode">
+    Switch Dark Scheme
+  </span>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width: 350px; margin-top: 5.75rem;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Create Account with Metamask</h5>
+      </div>
+      <div class="modal-body">
+        <p>Your email address is only used to send you important updates. Your nickname is how other
+          CryptoHauntoos
+          players
+          will identify you.</p>
+        <p><input type="email" class="form-control" id="email" placeholder="Your email address" style="width:100%;" />
+        </p>
+        <p><input type="text" class="form-control" id="nickname" placeholder="Nickname (optional)"
+            style="width:100%;" /></p>
+        <p><button type="button" (click)="metamaskSignIn()" class="btn btn-primary"
+            style="width: 60%;margin-left: 20%;">Continue</button>
+        </p>
+      </div>
+      <div class="modal-footer">
+        By signing up, you agree to our Terms of Service and Privacy Policy
+      </div>
+    </div>
+  </div>
+</div>

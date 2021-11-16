@@ -1,0 +1,292 @@
+<div id="wrapper" *ngIf="isDataAvailable">
+    <div class="no-bottom no-top" id="content">
+        <div id="top"></div>
+        <section aria-label="section" class="mt90 sm-mt-0" style="padding-bottom:0px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center" style="width: 40%;">
+                        <img src={{itdata.image}} class="img-fluid img-rounded mb-sm-30" alt="">
+                    </div>
+                    <div class="col-md-6" style="width: 60%;">
+                        <div class="item_info">
+                            <div class="property" style="max-width: 70%;float:left;">
+                                <p class="l3" contentEditable="true" on-focusout="updateItemName($event)">
+                                    {{itdata.name}}</p>
+                                <i class="fa fa-transgender"></i>&nbsp;Gen{{itdata.generation}}&nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-clock-o"></i>&nbsp;{{itdata.cooldown_index}}&nbsp;&nbsp;&nbsp;
+                            </div>
+                            <div class="item_author" style="float:right;padding-top:15px;">
+                                <div class="author_list_pp" style="float: right;">
+                                    <a href="#">
+                                        <img class="lazy" src="/assets/images/author/author-1.jpg" alt="">
+                                        <i class="fa fa-check"></i>
+                                    </a>
+                                </div>
+                                <div class="author_list_info" style="float: right;">
+                                    <a href="#">
+                                        {{itdata.owner.nickname}}<br>
+                                        Owner
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="spacer-40"></div>
+
+                            <div class="attributes-header" style="margin-bottom: 20px;">
+                                <p class="l3">Attributes</p>
+                            </div>
+                            <div class="attributes-content">
+                                <span role="button" *ngFor="let it of itattr" style="display: inline-flex;">
+                                    <div style="display: inline-flex;">
+                                        <a class="attribute-icon" style="text-decoration: none !important;">
+                                            <i class="fa fa-pagelines"></i>
+                                        </a>
+                                        <a class="attribute-content" style="text-decoration: none !important;">
+                                            <h5>{{it.trait_type}}</h5>
+                                            <span>{{it.value}}</span>
+                                        </a>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section aria-label="section" class="mt90 sm-mt-0" style="margin-top:0px;padding-top:50px;padding-bottom: 0px;">
+            <div class="container" style="display:flex;margin-bottom: 40px;">
+                <div class="de_tab tab_simple" style="width: 40%;margin-right: 34px;" *ngIf="status!=3">
+                    <span *ngIf="itPrice>=0"
+                        style="padding-right:10px;float:left;margin-top:10px;border-right:2px solid #024358;">Buy
+                        now price<br>{{itPrice.toFixed(3)}} FTM</span>
+                    <button class="share" (click)="doAction(0)">{{code[status]}}</button>
+                    <button class="share" (click)="doAction(1)" *ngIf="status!=2">Create Fixed</button>
+                </div>
+                <div class="de_tab tab_simple" [ngStyle]="{'width':status==3?100+'%':60+'%'}">
+                    <button class="share" style="float:left;margin-right:10px;"><i class="fa fa-share-alt"></i></button>
+                    <button class="share" style="float:left;margin-right:10px;"><i
+                            class="fa fa-heart"></i>&nbsp;&nbsp;&nbsp;5</button>
+                    <button class="share" style="float:left">Not in any Collection</button>
+                    <button class="share" style="float:right">Make Offer</button>
+                </div>
+            </div>
+            <div class="container" style="font-size:18px;line-height:35px;">
+                <p class="l3">Bio</p>
+                <p class="l4" contentEditable="true" on-focusout="updateItemGio($event)">{{itdata.description}}</p>
+            </div>
+        </section>
+        <section aria-label="section" class="mt90 sm-mt-0" style="margin-top:0px;padding-top:50px;padding-bottom: 0px;">
+            <div class="container" style="font-size:18px;line-height:35px;">
+                <p class="l3">Parents</p>
+            </div>
+            <div class="container" style="display: flex;" *ngIf="itdata.matron!=undefined">
+                <div class="parent_card">
+                    Mother
+                    <img src={{itdata.matron.image}} class="img-fluid img-rounded" alt="">
+                </div>
+                <div class="parent_card">
+                    Father
+                    <img src={{itdata.sire.image}} class="img-fluid img-rounded" alt="">
+                </div>
+            </div>
+        </section>
+        <section aria-label="section" class="mt90 sm-mt-0" style="margin-top:0px;padding-top:50px;">
+            <div class="container" style="font-size:18px;line-height:35px;">
+                <p class="l3">Children</p><br>
+            </div>
+            <div class="container" style="display: flex;" *ngIf="itdata.matron!=undefined">
+                <div *ngFor="let it of itdata.children" class="parent_card">
+                    <img src={{it.image}} class="img-fluid img-rounded" alt="">
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- content close -->
+
+    <a href="#" id="back-to-top"></a>
+
+    <!-- footer begin -->
+    <footer class="footer-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-1">
+                    <div class="widget">
+                        <h5>Marketplace</h5>
+                        <ul>
+                            <li><a href="#">All NFTs</a></li>
+                            <li><a href="#">Art</a></li>
+                            <li><a href="#">Music</a></li>
+                            <li><a href="#">Domain Names</a></li>
+                            <li><a href="#">Virtual World</a></li>
+                            <li><a href="#">Collectibles</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-1">
+                    <div class="widget">
+                        <h5>Resources</h5>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Suggestions</a></li>
+                            <li><a href="#">Discord</a></li>
+                            <li><a href="#">Docs</a></li>
+                            <li><a href="#">Newsletter</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-1">
+                    <div class="widget">
+                        <h5>Community</h5>
+                        <ul>
+                            <li><a href="#">Community</a></li>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">Brand Assets</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Forum</a></li>
+                            <li><a href="#">Mailing List</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-1">
+                    <div class="widget">
+                        <h5>Newsletter</h5>
+                        <p>Signup for our newsletter to get the latest news in your inbox.</p>
+                        <form class="row form-dark" id="form_subscribe" method="post" name="form_subscribe">
+                            <div class="col text-center">
+                                <input class="form-control" id="txt_subscribe" name="txt_subscribe"
+                                    placeholder="enter your email" type="text" /> <a href="#" id="btn-subscribe"><i
+                                        class="arrow_right bg-color-secondary"></i></a>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                        <div class="spacer-10"></div>
+                        <small>Your email is safe with us. We don't spam.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="subfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="de-flex">
+                            <div class="de-flex-col">
+                                <a href="#">
+                                    <span class="copy">&copy;
+                                        Copyright
+                                        2021 - CryptoHauntoo by Designesia</span>
+                                </a>
+                            </div>
+                            <div class="de-flex-col">
+                                <div class="social-icons">
+                                    <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+                                    <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin fa-lg"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest fa-lg"></i></a>
+                                    <a href="#"><i class="fa fa-rss fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer close -->
+
+</div>
+
+<div id="selector">
+    <span id="dark-mode">
+        Switch Dark Scheme
+    </span>
+</div>
+
+<div class="modal fade" id="createAuct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 350px; margin-top: 5.75rem;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Create Sale Auction</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Please fill the necessary information to create your own Auction.</p>
+                <p><input type="text" class="form-control" id="stprice" placeholder="Starting Price(FTM)"
+                        style="width:49%;float:left;" />
+                </p>
+                <p><input type="text" class="form-control" id="edprice" placeholder="Ending Price(FTM)"
+                        style="width:49%;float:right;" /></p>
+                <p>
+                    <select class="selection" id="duration" aria-placeholder="Duration of Auction">
+                        <option selected="selected" value="day">1 day</option>
+                        <option value="‭week">1 week</option>
+                        <option value="‭month‬">1 month</option>
+                    </select>
+                </p>
+                <p><button type="button" (click)="createAuction(0)" class="btn btn-primary"
+                        style="width: 100%;">Continue</button>
+                </p>
+                <p id="warning" style="display: none;">
+                    <b>Ending Price must be lower than Starting Price</b>
+                </p>
+            </div>
+            <div class="modal-footer">
+                Your hauntoo will be listed on the Hauntoo Sale Auction
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createFixed" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 350px; margin-top: 5.75rem;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Create Fixed Sale</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Please fill the necessary information to create your own fixed Sale.</p>
+                <p><input type="text" class="form-control" id="fixprice" placeholder="Fixed Price(FTM)"
+                        style="width:100%;margin-bottom:20px;" />
+                </p>
+                <p><button type="button" (click)="createAuction(1)" class="btn btn-primary"
+                        style="width: 100%;">Continue</button>
+                </p>
+            </div>
+            <div class="modal-footer">
+                Your hauntoo will be listed on the Hauntoo Sale Auction
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 350px; margin-top: 5.75rem;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Create Account with Metamask</h5>
+            </div>
+            <div class="modal-body">
+                <p>Your email address is only used to send you important updates. Your nickname is how other
+                    CryptoHauntoos
+                    players
+                    will identify you.</p>
+                <p><input type="email" class="form-control" id="email" placeholder="Your email address"
+                        style="width:100%;" />
+                </p>
+                <p><input type="text" class="form-control" id="nickname" placeholder="Nickname (optional)"
+                        style="width:100%;" /></p>
+                <p><button type="button" (click)="metamaskSignIn()" class="btn btn-primary"
+                        style="width: 60%;margin-left: 20%;">Continue</button>
+                </p>
+            </div>
+            <div class="modal-footer">
+                By signing up, you agree to our Terms of Service and Privacy Policy
+            </div>
+        </div>
+    </div>
+</div>

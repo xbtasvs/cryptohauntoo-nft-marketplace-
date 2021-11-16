@@ -1,0 +1,5 @@
+export const ht_add = "0xBb9Ec74d526C0BbFA8C4d52eE1407C7A52d0Ad69"
+export const sale_add = "0xc20da190aCc6DEBC737Fa2678eddCb35c00c0243"
+export const sire_add = "0xE4a58891eE5673dDA029E13EeeB119eEb6912627"
+export const gene_add = "0x2e2061BCE5B077AC979e3067CD658D7B19517120"
+export const server = "http://localhost:3000"

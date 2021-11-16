@@ -1,0 +1,146 @@
+[
+    {
+        "id": "142589",
+        "name": "Pinky Ocean",
+        "cost": "0.003782",
+        "gen": "9",
+        "cooldown": "Sluggish (2d)",
+        "image_url": "/assets/images/items/static-1.jpg"
+    },
+    {
+        "id": "132985",
+        "name": "Deep Sea Phantasy",
+        "cost": "0.0285",
+        "gen": "12",
+        "cooldown": "Plodding (7h)",
+        "image_url": "/assets/images/items/static-2.jpg"
+    },
+    {
+        "id": "140129",
+        "name": "Rainbow Style",
+        "cost": "0.01895",
+        "gen": "11",
+        "cooldown": "Slow (16h)",
+        "image_url": "/assets/images/items/static-3.jpg"
+    },
+    {
+        "id": "120890",
+        "name": "Two Tigers",
+        "cost": "0.04195",
+        "gen": "4",
+        "cooldown": "Slow (24h)",
+        "image_url": "/assets/images/items/static-4.jpg"
+    },
+    {
+        "id": "152308",
+        "name": "The Truth",
+        "cost": "0.0017",
+        "gen": "9",
+        "cooldown": "Plodding (8h)",
+        "image_url": "/assets/images/items/anim-4.html"
+    },
+    {
+        "id": "178209",
+        "name": "Running Puppets",
+        "cost": "0.00293",
+        "gen": "13",
+        "cooldown": "Slow (16h)",
+        "image_url": "/assets/images/items/anim-2.html"
+    },
+    {
+        "id": "180293",
+        "name": "USA Worldmation",
+        "cost": "0.00295",
+        "gen": "15",
+        "cooldown": "Slow (16h)",
+        "image_url": "/assets/images/items/anim-1.html"
+    },
+    {
+        "id": "191252",
+        "name": "Loop Donut",
+        "cost": "0.001493",
+        "gen": "17",
+        "cooldown": "Slow (15h)",
+        "image_url": "/assets/images/items/anim-5.html"
+    },
+    {
+        "id": "132089",
+        "name": "Lady Copter",
+        "cost": "0.0005",
+        "gen": "10",
+        "cooldown": "Brisk (2h)",
+        "image_url": "/assets/images/items/anim-3.html"
+    },
+    {
+        "id": "177293",
+        "name": "Purple Planet",
+        "cost": "0.018250",
+        "gen": "18",
+        "cooldown": "Sluggish (4d)",
+        "image_url": "/assets/images/items/static-5.jpg"
+    },
+    {
+        "id": "182639",
+        "name": "This is Our Story",
+        "cost": "0.252351",
+        "gen": "16",
+        "cooldown": "Plodding (8h)",
+        "image_url": "/assets/images/items/anim-7.html"
+    },
+    {
+        "id": "162630",
+        "name": "Pixel World",
+        "cost": "0.1285",
+        "gen": "12",
+        "cooldown": "Plodding (8h)",
+        "image_url": "/assets/images/items/static-6.jpg"
+    },
+    {
+        "id": "152693",
+        "name": "I Believe I Can Fly",
+        "cost": "0.02643",
+        "gen": "15",
+        "cooldown": "Brisk (1h)",
+        "image_url": "/assets/images/items/anim-8.html"
+    },
+    {
+        "id": "172337",
+        "name": "Cute Astronout",
+        "cost": "0.0819",
+        "gen": "13",
+        "cooldown": "Brisk (2h)",
+        "image_url": "/assets/images/items/static-7.jpg"
+    },
+    {
+        "id": "191240",
+        "name": "Teal Ocean",
+        "cost": "0.01254",
+        "gen": "18",
+        "cooldown": "Sluggish (5d)",
+        "image_url": "/assets/images/items/static-8.jpg"
+    },
+    {
+        "id": "159261",
+        "name": "Sunny Day",
+        "cost": "0.0262",
+        "gen": "12",
+        "cooldown": "Brisk(2h)",
+        "image_url": "/assets/images/author_single/porto-2.jpg"
+    },
+    {
+        "id": "133899",
+        "name": "Blue Planet",
+        "cost": "0.01982",
+        "gen": "11",
+        "cooldown": "Sluggish(2d)",
+        "image_url": "/assets/images/author_single/porto-3.jpg"
+    },
+    {
+        "id": "192752",
+        "name": "Graffiti Colors",
+        "cost": "0.352",
+        "gen": "15",
+        "cooldown": "Sluggish(2d)",
+        "image_url": "/assets/images/author_single/porto-4.jpg"
+    }
+]

@@ -1,0 +1,8 @@
+.egg{
+  width: 100px !important;
+  height: 100px !important;
+  z-index: 100;
+  position: absolute;
+  left: 71%;
+  top: 69%;
+}

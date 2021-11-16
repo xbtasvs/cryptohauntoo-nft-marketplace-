@@ -1,0 +1,110 @@
+<div id="wrapper">
+  <!-- content begin -->
+  <div class="no-bottom no-top" id="content">
+    <div id="top"></div>
+
+    <section id="subheader" class="text-light"
+      style="background: url('/assets/images/background/2.jpg') center top / cover;">
+      <div class="center-y relative text-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h1>Summoning Hauntoos</h1>
+              <h3>These two hauntoos will soon be parents.</h3>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="section">
+      <div class="container">
+        <div class="row" style="justify-content:center;">
+          <div class="col-md-5">
+            <div class="nft__item" style=" cursor: pointer;">
+              <div class="nft__item_wrap">
+                <a style="text-decoration: none;width:60%;" (click)="showModal(0)">
+                  <h3 style="color:pink;" *ngIf="sire.id == -1">Select your Hauntoo</h3>
+                  <img *ngIf="sire.id != -1" src="{{sire.image}}" class="lazy nft__item_preview">
+                </a>
+                <div style="font-size:20px;">
+                  <b>Sire</b><br>
+                  This hauntoo will be sire.<br>
+                  <div style="text-align:left;padding-left:10%;margin-top:15%;">
+                    Name: {{sire.id==-1?"???":sire.name}}<br>
+                    Gen: {{sire.id==-1?"???":sire.gene}}<br>
+                    Cooldown: {{sire.id==-1?"???":sire.cooldown}}<br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-1" style="justify-content: center;">
+            <a role="button" (click)="summoningHauntoos()">
+              <img src="/assets/images/heart.png" style="width:130px;margin-left:-22px;margin-top:100%;" />
+            </a>
+          </div>
+          <div class="col-md-5">
+            <div class="nft__item" style=" cursor: pointer;">
+              <div class="nft__item_wrap">
+                <a style="text-decoration: none;width:80%;" (click)="showModal(1)">
+                  <h3 style="color:grey;" *ngIf="preggers.id == -1">Select your Hauntoo</h3>
+                  <img *ngIf="preggers.id != -1" src="{{preggers.image}}" class="lazy nft__item_preview">
+                </a>
+                <div style="font-size:20px;">
+                  <b>Dame</b><br>
+                  This hauntoo will be preggers.<br>
+                  <div style="text-align:left;padding-left:10%;margin-top:15%;">
+                    Name: {{preggers.id==-1?"???":preggers.name}}<br>
+                    Gen: {{preggers.id==-1?"???":preggers.gene}}<br>
+                    Cooldown: {{preggers.id==-1?"???":preggers.cooldown}}<br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="modal fade" id="hauntooList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width: 900px; margin-top: 5.75rem;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Select a Hauntoo to summoning</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row" style="--bs-gutter-x:18.9rem">
+          <div *ngFor="let it of filter | paginate : {
+                itemsPerPage: tableSize1,
+                currentPage: page1,
+                totalItems: count1 }" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+            <div class="nft__item" style="width: 262px !important;">
+              <div class="nft__item_wrap">
+                <a style="cursor: pointer;" (click)="selectHauntoo(it)">
+                  <img src={{it.image}} class="lazy nft__item_preview" alt="">
+                </a>
+              </div>
+              <div class="nft__item_info">
+                #{{it.hauntooid}}
+              </div>
+              <div class="nft__item_price">
+                <i class="fa fa-transgender"></i>&nbsp;Gen
+                {{it.generation}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock-o"></i>&nbsp;{{it.cooldown_index}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center" style="margin-top: 25px;">
+          <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+          </pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

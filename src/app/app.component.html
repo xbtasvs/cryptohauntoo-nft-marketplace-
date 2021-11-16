@@ -1,0 +1,146 @@
+<div id="wrapper">
+    <!-- header begin -->
+    <header class="" [ngClass]="getClasses()">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="de-flex sm-pt10">
+                        <div class="de-flex-col">
+                            <div class="de-flex-col">
+                                <!-- logo begin -->
+                                <div id="logo">
+                                    <a href="">
+                                        <img alt="" class="logo" src="/assets/images/logo-light.png" />
+                                    </a>
+                                </div>
+                                <!-- logo close -->
+                            </div>
+                            <div class="de-flex-col">
+                                <input id="quick_search" class="xs-hide" name="quick_search"
+                                    placeholder="search item here..." type="text" disabled />
+                            </div>
+                        </div>
+                        <div class="de-flex-col header-col-mid">
+                            <!-- mainmenu begin -->
+                            <ul id="mainmenu">
+                                <li>
+                                    <a href=""><i class="fa fa-modx"></i>&nbsp;Catalogue<span></span></a>
+                                    <ul style="margin-top:-20px;">
+                                        <li><a routerLink="/">Cattributes</a></li>
+                                        <li><a href="">Fancy Hauntoo</a></li>
+                                        <li><a href="">Exclusive Hauntoo</a></li>
+                                        <li><a href="">Special Edition</a></li>
+                                        <li><a href="">Most Liked Collections</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-search"></i>&nbsp;Search<span></span></a>
+                                    <ul style="margin-top:-20px;">
+                                        <li><a routerLink="search/sale" [queryParams]="{include: 'sale'}">For
+                                                Sale</a></li>
+                                        <li><a routerLink="search/sire" [queryParams]="{include: 'sire'}">Siring</a>
+                                        </li>
+                                        <li><a routerLink="search/all" [queryParams]="{include: 'all'}">All Hauntoo</a>
+                                        </li>
+                                        <li><a href="">Adoption</a></li>
+                                        <li><a href="">Gen-0 Adoption</a></li>
+                                        <li><a href="">Red Dot Sires</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa fa-question"></i>&nbsp;Guides<span></span></a>
+                                    <ul style="margin-top:-20px;">
+                                        <li><a href="">Hauntoo Class</a></li>
+                                        <li><a href="">Getting Started</a></li>
+                                        <li><a href="">Gas and Fees</a></li>
+                                        <li><a href="">Type of Hauntoo</a></li>
+                                        <li><a href="">Marketplace</a></li>
+                                        <li><a href="">FAQs</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa fa-gift"></i>&nbsp;More<span></span></a>
+                                    <ul style="margin-top:-20px;">
+                                        <li><a href="">Blog</a></li>
+                                        <li><a href="">About</a></li>
+                                        <li><a href="">Events</a></li>
+                                        <li><a href="">Newsletter</a></li>
+                                        <li><a href="">Hauntoo Verse</a></li>
+                                    </ul>
+                                </li>
+                                <li *ngIf="connect==true">
+                                    <a><i class="fa fa-diamond"></i>&nbsp;Hauntoo<span></span></a>
+                                    <ul style="margin-top:-20px;">
+                                        <li *ngIf="ownable"><a routerLink="create">Create Gen0 Hauntoo</a></li>
+                                        <li *ngIf="ownable"><a data-bs-toggle="modal" data-bs-target="#transfer"
+                                                href="">Transfer Owner</a></li>
+                                        <li><a routerLink="hauntoo">My Hauntoo</a></li>
+                                        <li><a href="">Activity</a></li>
+                                        <li><a href="">Offers Received</a></li>
+                                        <li><a href="">Offers Sent</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="menu_side_area" *ngIf="connect==false">
+                                <a (click)="onConnect()" role="button" class="btn-main"><i
+                                        class="icon_wallet_alt"></i><span>Connect Wallet</span></a>
+                                <span id="menu-btn"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header close -->
+</div>
+
+<div class="modal fade" id="metamaskInstall" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" style="height:90% !important;max-width: 550px; bottom: 3.2% !important">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Wanna play?</h5>
+                <a href="" type="button" class="btn btn-secondary" style="width: 25%;">Done</a>
+            </div>
+            <div class="modal-body">
+                <p style="padding:10px;">
+                    <img src="/assets/images/wallet/metamask.png" style="width: 100%;" />
+                </p>
+                <p>You’ll need a safe place to store all of your adorable <b>CryptoHauntoos!</b></p>
+                <p>The perfect place is in a secure wallet like <b>MetaMask.</b></p>
+                <p>This will also act as your login to the game(no extra password needed).</p>
+                <p>
+                    <a target="#"
+                        href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"
+                        type="button" class="btn btn-primary" style="width: 60%;margin-left: 20%;">Get from Chrome
+                        Web Store</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="transfer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 350px; margin-top: 5.75rem;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Want to transfer owner?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><input type="text" class="form-control" id="address" placeholder="Address to transfer"
+                        style="width:100%;" /></p>
+                <p><button type="button" (click)="transferOwner()" class="btn btn-primary"
+                        style="width: 100%;">Transfer</button>
+                </p>
+            </div>
+            <div class="modal-footer">
+                After transfer owner you can't manage ownable changes so please think one more time.
+            </div>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
